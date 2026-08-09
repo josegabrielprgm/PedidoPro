@@ -77,7 +77,7 @@ O projeto utiliza testes automatizados para verificar o comportamento da aplica√
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/SEU_USUARIO/orderflow.git
+git clone https://github.com/SEU_USUARIO/pedidoPro.git
 cd orderflow
 ```
 
@@ -98,7 +98,7 @@ src/main/resources/application.properties
 Configure:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/orderflow
+spring.datasource.url=jdbc:mysql://localhost:3306/pedidoPro
 spring.datasource.username=root
 spring.datasource.password=SUA_SENHA
 ```
