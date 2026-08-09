@@ -84,7 +84,7 @@ cd orderflow
 ### 2. Crie o banco de dados
 
 ```sql
-CREATE DATABASE orderflow;
+CREATE DATABASE PedidoPro;
 ```
 
 ### 3. Configure o banco
