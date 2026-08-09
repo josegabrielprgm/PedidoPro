@@ -78,7 +78,7 @@ O projeto utiliza testes automatizados para verificar o comportamento da aplica�
 
 ```bash
 git clone https://github.com/SEU_USUARIO/pedidoPro.git
-cd orderflow
+cd PedidoPro
 ```
 
 ### 2. Crie o banco de dados
@@ -112,7 +112,7 @@ mvn spring-boot:run
 Ou execute a classe principal:
 
 ```text
-OrderFlowApplication.java
+PedidoProApplication.java
 ```
 
 A aplicação será iniciada, por padrão, em:
@@ -123,7 +123,7 @@ http://localhost:8080
 
 ## 📚 Objetivo
 
-O OrderFlow é um projeto de estudo e portfólio criado para aplicar, na prática, conceitos de **Java, Spring Boot, APIs REST, bancos de dados, JPA, segurança, autenticação, testes e arquitetura de software**.
+O PedidoPro é um projeto de estudo e portfólio criado para aplicar, na prática, conceitos de **Java, Spring Boot, APIs REST, bancos de dados, JPA, segurança, autenticação, testes e arquitetura de software**.
 
 ## 🚧 Status
 
