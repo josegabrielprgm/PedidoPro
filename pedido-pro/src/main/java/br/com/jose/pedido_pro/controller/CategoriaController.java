@@ -3,6 +3,9 @@ package br.com.jose.pedido_pro.controller;
 import br.com.jose.pedido_pro.dto.request.CategoriaRequest;
 import br.com.jose.pedido_pro.dto.response.CategoriaResponse;
 import br.com.jose.pedido_pro.service.CategoriaService;
+import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,17 +22,17 @@ public class CategoriaController {
 
 
     @PostMapping
-    public CategoriaResponse create(@RequestBody CategoriaRequest categoria) {
+    public CategoriaResponse create(@Valid @RequestBody CategoriaRequest categoria) {
         return service.create(categoria);
     }
 
     @GetMapping
-    public List<CategoriaResponse> getAll(@RequestParam(required = false) String nome, @RequestParam(required = false) String descricao) {
-        return service.getAll(nome, descricao);
+    public Page<CategoriaResponse> getAll(@RequestParam(required = false) String nome, @RequestParam(required = false) String descricao, Pageable pageable) {
+        return service.getAll(nome, descricao, pageable);
     }
 
     @PutMapping("/{id}")
-    public CategoriaResponse update(@PathVariable Integer id, @RequestBody CategoriaRequest dto) {
+    public CategoriaResponse update(@Valid @PathVariable Integer id, @RequestBody CategoriaRequest dto) {
         return service.update(id, dto);
     }
 

@@ -15,9 +15,6 @@ public class CategoriaMapper {
                 .descricao(dto.descricao())
                 .build();
 
-        categoria.setNome(dto.nome());
-        categoria.setDescricao(dto.descricao());
-
         return categoria;
     }
 

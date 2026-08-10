@@ -1,6 +1,8 @@
 package br.com.jose.pedido_pro.repository;
 
 import br.com.jose.pedido_pro.entity.Categoria;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,4 +28,9 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
             @Param("descricao") String descricao
     );
 
+    Page<Categoria> findByNomeContainingIgnoreCaseAndDescricaoContainingIgnoreCase(
+            String nome,
+            String descricao,
+            Pageable pageable
+    );
 }
