@@ -1,5 +1,7 @@
 package br.com.jose.pedido_pro.dto.request;
 
 
-public record CategoriaRequest(String nome, String descricao) {
+import jakarta.validation.constraints.NotNull;
+
+public record CategoriaRequest(@NotNull String nome, String descricao) {
 }
