@@ -1,7 +1,7 @@
 package br.com.jose.pedido_pro.service;
 
-import br.com.jose.pedido_pro.dto.request.CategoriaRequestDto;
-import br.com.jose.pedido_pro.dto.response.CategoriaResponseDto;
+import br.com.jose.pedido_pro.dto.request.CategoriaRequest;
+import br.com.jose.pedido_pro.dto.response.CategoriaResponse;
 import br.com.jose.pedido_pro.mapper.CategoriaMapper;
 import br.com.jose.pedido_pro.model.Categoria;
 import br.com.jose.pedido_pro.repository.CategoriaRepository;
@@ -20,11 +20,12 @@ public class CategoriaService {
         this.mapper = mapper;
     }
 
-    public CategoriaResponseDto create(CategoriaRequestDto dto) {
+    public CategoriaResponse create(CategoriaRequest dto) {
 
-        if (repository.existsByNome(dto.getNome())) {
+        if (repository.existsByNome(dto.nome())) {
             throw new RuntimeException("Já salvo no banco");
         }
+
         Categoria categoria = mapper.toEntity(dto);
 
         Categoria salva = repository.save(categoria);
@@ -32,24 +33,24 @@ public class CategoriaService {
         return mapper.toResponseDto(salva);
     }
 
-    public List<CategoriaResponseDto> getAll() {
+    public List<CategoriaResponse> getAll(String nome, String descricao) {
 
-        List<Categoria> categorias = repository.findAll();
+        List<Categoria> categorias = repository.getAll(nome, descricao);
 
         return categorias.stream().map(mapper::toResponseDto).toList();
     }
 
-    public CategoriaResponseDto update(Integer id, CategoriaRequestDto dto) {
+    public CategoriaResponse update(Integer id, CategoriaRequest dto) {
 
         Categoria categoria = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Categoria não encontrada!"));
 
-        if (repository.existsByNomeAndIdNot(id, dto.getNome())) {
+        if (repository.existsByNomeAndIdNot(dto.nome(), id)) {
             throw new RuntimeException("Já existe uma categoria com esse nome!");
         }
 
-        categoria.setNome(dto.getNome());
-        categoria.setDescricao(dto.getDescricao());
+        categoria.setNome(dto.nome());
+        categoria.setDescricao(dto.descricao());
 
         Categoria atualizada = repository.save(categoria);
 

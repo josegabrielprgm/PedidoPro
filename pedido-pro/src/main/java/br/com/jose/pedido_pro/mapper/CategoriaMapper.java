@@ -1,30 +1,24 @@
 package br.com.jose.pedido_pro.mapper;
 
-import br.com.jose.pedido_pro.dto.request.CategoriaRequestDto;
-import br.com.jose.pedido_pro.dto.response.CategoriaResponseDto;
+import br.com.jose.pedido_pro.dto.request.CategoriaRequest;
+import br.com.jose.pedido_pro.dto.response.CategoriaResponse;
 import br.com.jose.pedido_pro.model.Categoria;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CategoriaMapper {
 
-    public Categoria toEntity(CategoriaRequestDto dto) {
+    public Categoria toEntity(CategoriaRequest dto) {
         Categoria categoria = new Categoria();
 
-        categoria.setNome(dto.getNome());
-        categoria.setDescricao(dto.getDescricao());
+        categoria.setNome(dto.nome());
+        categoria.setDescricao(dto.descricao());
 
         return categoria;
     }
 
-    public CategoriaResponseDto toResponseDto(Categoria categoria) {
-        CategoriaResponseDto dto = new CategoriaResponseDto();
-
-        dto.setId(categoria.getId());
-        dto.setNome(categoria.getNome());
-        dto.setDescricao(categoria.getDescricao());
-
-        return dto;
+    public CategoriaResponse toResponseDto(Categoria categoria) {
+        return CategoriaResponse.from(categoria);
     }
 
 }

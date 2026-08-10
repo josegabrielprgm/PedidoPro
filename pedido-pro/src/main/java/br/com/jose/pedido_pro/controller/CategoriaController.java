@@ -1,8 +1,7 @@
 package br.com.jose.pedido_pro.controller;
 
-import br.com.jose.pedido_pro.dto.request.CategoriaRequestDto;
-import br.com.jose.pedido_pro.dto.response.CategoriaResponseDto;
-import br.com.jose.pedido_pro.model.Categoria;
+import br.com.jose.pedido_pro.dto.request.CategoriaRequest;
+import br.com.jose.pedido_pro.dto.response.CategoriaResponse;
 import br.com.jose.pedido_pro.service.CategoriaService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,17 +19,17 @@ public class CategoriaController {
 
 
     @PostMapping
-    public CategoriaResponseDto create(CategoriaRequestDto categoria) {
+    public CategoriaResponse create(@RequestBody CategoriaRequest categoria) {
         return service.create(categoria);
     }
 
     @GetMapping
-    public List<CategoriaResponseDto> getAll() {
-        return service.getAll();
+    public List<CategoriaResponse> getAll(@RequestParam(required = false) String nome, @RequestParam(required = false) String descricao) {
+        return service.getAll(nome, descricao);
     }
 
     @PutMapping("/{id}")
-    public CategoriaResponseDto update(@PathVariable Integer id, @RequestBody CategoriaRequestDto dto) {
+    public CategoriaResponse update(@PathVariable Integer id, @RequestBody CategoriaRequest dto) {
         return service.update(id, dto);
     }
 
