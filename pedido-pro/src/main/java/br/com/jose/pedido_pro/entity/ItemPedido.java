@@ -1,10 +1,7 @@
-package br.com.jose.pedido_pro.model;
+package br.com.jose.pedido_pro.entity;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -12,7 +9,9 @@ import java.math.BigDecimal;
 @Table(name = "ITEM_PEDIDO")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class ItemPedido {
 

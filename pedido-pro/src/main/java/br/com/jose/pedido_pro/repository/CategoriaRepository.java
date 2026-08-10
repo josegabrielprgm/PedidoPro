@@ -1,6 +1,6 @@
 package br.com.jose.pedido_pro.repository;
 
-import br.com.jose.pedido_pro.model.Categoria;
+import br.com.jose.pedido_pro.entity.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

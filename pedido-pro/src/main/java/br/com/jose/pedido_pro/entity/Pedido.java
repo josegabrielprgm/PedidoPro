@@ -1,10 +1,8 @@
-package br.com.jose.pedido_pro.model;
+package br.com.jose.pedido_pro.entity;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,7 +11,9 @@ import java.util.List;
 @Table(name = "PEDIDO")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Pedido {
 

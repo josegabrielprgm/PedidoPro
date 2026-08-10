@@ -1,10 +1,7 @@
-package br.com.jose.pedido_pro.model;
+package br.com.jose.pedido_pro.entity;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,7 +9,9 @@ import java.util.List;
 @Table(name = "CLIENTE")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = "cpf")
 public class Cliente {
 

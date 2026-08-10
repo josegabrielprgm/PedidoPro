@@ -3,7 +3,7 @@ package br.com.jose.pedido_pro.service;
 import br.com.jose.pedido_pro.dto.request.CategoriaRequest;
 import br.com.jose.pedido_pro.dto.response.CategoriaResponse;
 import br.com.jose.pedido_pro.mapper.CategoriaMapper;
-import br.com.jose.pedido_pro.model.Categoria;
+import br.com.jose.pedido_pro.entity.Categoria;
 import br.com.jose.pedido_pro.repository.CategoriaRepository;
 import org.springframework.stereotype.Service;
 

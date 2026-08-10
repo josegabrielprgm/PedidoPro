@@ -1,6 +1,6 @@
 package br.com.jose.pedido_pro.dto.response;
 
-import br.com.jose.pedido_pro.model.Categoria;
+import br.com.jose.pedido_pro.entity.Categoria;
 
 public record CategoriaResponse(Integer id, String nome, String descricao) {
 
