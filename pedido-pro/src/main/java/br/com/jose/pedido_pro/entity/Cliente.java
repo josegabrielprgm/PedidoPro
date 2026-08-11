@@ -1,5 +1,6 @@
 package br.com.jose.pedido_pro.entity;
 
+import br.com.jose.pedido_pro.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,9 +26,16 @@ public class Cliente {
     @Column(name = "EMAIL", length = 100)
     private String email;
 
+    @Column(name = "SENHA")
+    private String senha;
+
     @Column(name = "TELEFONE", length = 11, nullable = false)
     private String telefone;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "ROLE", nullable = false)
+    private Role role;
 }
