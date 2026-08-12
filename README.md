@@ -77,7 +77,7 @@ O projeto utiliza testes automatizados para verificar o comportamento da aplica√
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/SEU_USUARIO/pedidoPro.git
+git clone https://github.com/josegabrielprgm/pedidoPro.git
 cd PedidoPro
 ```
 
