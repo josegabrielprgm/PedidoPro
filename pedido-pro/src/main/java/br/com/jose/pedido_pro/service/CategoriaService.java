@@ -37,11 +37,7 @@ public class CategoriaService {
 
     public Page<CategoriaResponse> getAll(String nome, String descricao, Pageable pageable) {
 
-        Page<Categoria> categorias = repository.findByNomeContainingIgnoreCaseAndDescricaoContainingIgnoreCase(
-                nome == null ? "" : nome,
-                descricao == null ? "" : descricao,
-                pageable
-        );
+        Page<Categoria> categorias = repository.getAll(nome, descricao, pageable);
 
         return categorias.map(mapper::toResponseDto);
     }

@@ -51,6 +51,18 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/categorias/**")
                         .hasRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.GET, "/produtos/**")
+                        .hasAnyRole("CLIENTE", "ADMIN")
+
+                        .requestMatchers(HttpMethod.POST, "/produtos", "/produtos/**")
+                        .hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.PUT, "/produtos/**")
+                        .hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.DELETE, "/produtos/**")
+                        .hasRole("ADMIN")
+
                         // Qualquer outra rota precisa estar autenticada
                         .anyRequest().authenticated()
                 )

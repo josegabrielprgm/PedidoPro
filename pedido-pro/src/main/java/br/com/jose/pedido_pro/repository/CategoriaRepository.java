@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
@@ -23,13 +22,8 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
                 WHERE (:nome IS NULL OR o.nome LIKE %:nome%)
                 AND (:descricao IS NULL OR o.descricao LIKE %:descricao%)
             """)
-    List<Categoria> getAll(
+    Page<Categoria> getAll(
             @Param("nome") String nome,
-            @Param("descricao") String descricao
-    );
-
-    Page<Categoria> findByNomeContainingIgnoreCaseAndDescricaoContainingIgnoreCase(
-            String nome,
             String descricao,
             Pageable pageable
     );
