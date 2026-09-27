@@ -35,6 +35,7 @@ public class Pedido {
     @Column(name = "STATUS", length = 45, nullable = false)
     private String status;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemPedido> itens;
+
 }

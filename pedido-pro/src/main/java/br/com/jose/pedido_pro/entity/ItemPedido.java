@@ -31,6 +31,6 @@ public class ItemPedido {
     @Column(name = "QUANTIDADE", nullable = false)
     private Integer quantidade;
 
-    @Column(name = "`PRECO-UNITARIO`", nullable = false, precision = 10, scale = 2)
+    @Column(name = "`PRECO_UNITARIO`", nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario;
 }
